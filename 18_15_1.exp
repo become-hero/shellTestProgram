@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+#create by zhangyang
+if { $argc != 2 } {
+    send_user "usage:expect expect.exp file host\n"
+    exit
+}
+#define var
+set file [lindex $argv 0]
+set host [lindex $argv 1]
+set password "aaaassss"
+#start exec cmd
+spawn ssh-copy-id -i $file "-p 22 root@$host"
+expect {
+    "yes/no" {send "yes\r";exp_continue}
+    "*password" {send "$password\r"}
+}
+expect eof

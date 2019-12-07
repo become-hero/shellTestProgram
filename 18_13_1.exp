@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+if { $argc != 3 } {
+    puts "usage: expect $argv0 file host dir"
+    exit
+}
+#define var
+set file [lindex $argv 0]
+set host [lindex $argv 1]
+set dir [lindex $argv 2]
+set password "aaaassss"
+#
+spawn scp -P22 -rp $file root@$host:$dir
+expect {
+    "yes/no" {send "yes\r";exp_continue}
+    "*password" {send "$password\r"}
+}
+expect eof

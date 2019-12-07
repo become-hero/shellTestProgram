@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+if { $argc != 3 } {
+    send_user "usage: expect $argv0 file host dir\n"
+    exit
+}
+#define var
+set file [lindex $argv 0]
+set host [lindex $argv 1]
+set dir [lindex $argv 2]
+puts "$file\t$host\t$dir\n"

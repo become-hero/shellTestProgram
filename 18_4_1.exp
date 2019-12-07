@@ -1,0 +1,7 @@
+#!/usr/bin/expect
+send_user "i am oldboy\n"
+send_user "i am linuxer.\t"
+send_user "MY world!!!!!!!!!!!!!\n"
+exit -onexit {
+    send_user "Good bye.\n"
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/expect
+spawn ssh root@192.168.10.10 uptime
+set timeout 30
+expect "yes/no" {send "yes\r";exp_continue}
+expect timeout {puts "Time out.";return}

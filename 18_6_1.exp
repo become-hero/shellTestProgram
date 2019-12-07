@@ -1,0 +1,4 @@
+#!/usr/bin/expect
+set password "123456"
+puts $password
+send_user "$password\n"
